@@ -55,11 +55,11 @@ model = models.Sequential([
     layers.Conv2D(32, (3, 3), activation='relu', input_shape=(200, 200, 3)),
     layers.MaxPooling2D(2, 2),
     layers.Flatten(),
+    # layers.Dense(256, activation='relu'),
+    # layers.Dense(128, activation='relu'),
     layers.Dense(128, activation='relu'),
-    layers.Dense(256, activation='relu'),
-    layers.Dense(128, activation='relu'),
-    layers.Dense(64, activation='relu'),
     layers.Dense(32, activation='relu'),
+    layers.Dropout(0.3),
     layers.Dense(6, activation='softmax')
 ])
 
@@ -68,11 +68,9 @@ model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=
 model.fit(
     image_batch_generator(X_train, y_train, batch_size=32), 
     steps_per_epoch=len(X_train) // 32, 
-    epochs=10
+    epochs=6
 )
 
 
-model.save('imageDetect.keras')
-
-
+model.save('imageDetect3.keras')
 
