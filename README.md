@@ -19,5 +19,5 @@ pip install tensorflow
     
 To train the model, run modelTrainer.py     
 Then, to test the model, run modelValidater.py    
-Then, to get the test results, run modelTester.py    
+Then, to get the test results, run modelTestResults.py    
 
